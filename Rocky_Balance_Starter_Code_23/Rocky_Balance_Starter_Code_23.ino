@@ -86,10 +86,16 @@ void BalanceRocky()
 
     // **************Enter the control parameters here
     
-	float Kp = 4.967047e+03;
-	float Ki = 2.409864e+04;
-	float Ji = -3.908614e+03;
-	float Jp = 4.148611e+02;
+	// float Kp = 4.967047e+03;
+	// float Ki = 2.409864e+04;
+	// float Ji = -3.908614e+03;
+	// float Jp = 4.148611e+02;
+	// float Ci = -4.203791e+03;
+
+  float Kp = 4.810124e+03;
+	float Ki = 2.333812e+04;
+	float Ji = -3.806650e+03;
+	float Jp = 3.950431e+02;
 	float Ci = -4.203791e+03;
 
 
