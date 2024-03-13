@@ -57,9 +57,6 @@ Hcloop_sub = subs(Hcloop) % sub parameter values into Hcloop
 
 zeta1 = 0.9;
 zeta2 = 0.84;
-zeta3 = 1
-polepair1 = -zeta1*wn + wn*sqrt(1-zeta1^2)*1i
-polepair2 = -zeta2*wn + wn*sqrt(1-zeta2^2)*1i
 
 p1 = -zeta1*wn + wn*sqrt(1-zeta1^2)*1i  % dominant pole pair
 p2 = -zeta1*wn - wn*sqrt(1-zeta1^2)*1i   % dominant pole pair 
