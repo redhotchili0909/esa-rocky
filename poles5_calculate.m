@@ -101,10 +101,15 @@ solutions = solve(coeffs_denom(1:5) == coeffs_tgt(1:5), Jp, Ji,  Kp, Ki, Ci);
 
 % display the solutions as double precision numbers
 Kp = double(solutions.Kp)
+Kp_simulink = real(Kp)
 Ki = double(solutions.Ki)
+Ki_simulink = real(Ki)
 Ji = double(solutions.Ji)
+Ji_simulink = real(Ji)
 Jp = double(solutions.Jp)
+Jp_simulink = real(Jp)
 Ci = double(solutions.Ci)
+Ci_simulink = real(Ci)
 
 % Print them so I can copy and paste easily
 fprintf(['\tfloat Kp = %d;\n\tfloat Ki = %d;\n\tfloat ' ...
