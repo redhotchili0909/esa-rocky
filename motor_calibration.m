@@ -16,12 +16,12 @@ xlabel('Time (ms)')
 ylabel('Speed (cm/s)')
 
 
-motorFit(t, leftM');
-motorFit(t, rightM')
+leftmotorFit(t, leftM');
+rightmotorFit(t, rightM')
 
 
 
-function [fitresult, gof] = motorFit(t, wheel)
+function [fitresult, gof] = leftmotorFit(t, wheel)
 
 [xData, yData] = prepareCurveData( t, wheel );
 
@@ -37,6 +37,31 @@ opts.StartPoint = [1.38459033484506 -0.000226093526123982 -0.986964610236507 -0.
 % Plot fit with data.
 figure();
 h = plot( fitresult, xData, yData );
+title("Left Motor Speeds")
+legend( h, 'Measured', 'Fit', 'Location', 'NorthEast', 'Interpreter', 'none' );
+% Label axes
+xlabel('Time (ms)')
+ylabel('Speed (cm/s)')
+grid on
+end
+
+function [fitresult, gof] = rightmotorFit(t, wheel)
+
+[xData, yData] = prepareCurveData( t, wheel );
+
+% Set up fittype and options.
+ft = fittype( 'exp2' );
+opts = fitoptions( 'Method', 'NonlinearLeastSquares' );
+opts.Display = 'Off';
+opts.StartPoint = [1.38459033484506 -0.000226093526123982 -0.986964610236507 -0.00215883214747229];
+
+% Fit model to data.
+[fitresult, gof] = fit( xData, yData, ft, opts );
+
+% Plot fit with data.
+figure();
+h = plot( fitresult, xData, yData );
+title("Right Motor Speeds")
 legend( h, 'Measured', 'Fit', 'Location', 'NorthEast', 'Interpreter', 'none' );
 % Label axes
 xlabel('Time (ms)')

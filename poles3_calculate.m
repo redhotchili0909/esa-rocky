@@ -38,9 +38,9 @@ pretty(simplify(Hcloop))       % to display the total transfer function
 % Substitute parameters and solve
 % system parameters
 g = 9.81;
-l = 0.4168   %effective length  
-a = 10.33;           %nominal motor parameters
-b = 0.0029;        %nominal motor parameters
+l = 0.40038   %effective length  
+a = 10.12;           %nominal motor parameters
+b = 0.00301;        %nominal motor parameters
 wn = 2*pi/1.27
 
 Hcloop_sub = subs(Hcloop) % sub parameter values into Hcloop
@@ -79,8 +79,8 @@ coeffs_tgt = coeffs(tgt_char_poly, s)
 solutions = solve(coeffs_denom(1:npoly-1) == coeffs_tgt(1:npoly-1),  Kp, Ki)
 
 % display the solutions as double precision numbers
-Kp = double(solutions.Kp)
-Ki = double(solutions.Ki)
+Kp = real(double(solutions.Kp))
+Ki = real(double(solutions.Ki))
 
 % reorder coefficients for the check polynomial 
 for ii = 1:length(coeffs_denom)
